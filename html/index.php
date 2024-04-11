@@ -23,10 +23,10 @@
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="http://localhost:8000/#">Home</a>
                     </li>
                     <li>
-                        <a href="categories.html">Menu</a>
+                        <a href="http://localhost:8000/Foods.php">Menu</a>
                     </li>
                     <li>
                         <a href="foods.html">About us</a>
