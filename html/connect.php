@@ -1,25 +1,11 @@
 <?php
-$connection = new PDO(dsn: "mysql:dbname=menu;host=mysql_db", username: "root", password: "rootpassword");
+$connection = new PDO(dsn: "mysql:dbname=Restaurant_Menu;host=mysql_db", username: "root", password: "rootpassword");
 
-?>
+$sql = "SELECT * FROM Restaurant_Menu";
 
+$stmt = $connection->query($sql);
 
-<?php
-
-$host = 'mysql_db';
-$db = 'school';
-$user = ''; 
-$pass = 
-
-$dsn = "mysql:host=$host;dbname=$db";
-$conn = new PDO($dsn, $user, $pass);
-
-$statement = $conn->prepare("INSERT INTO Restaurant menu (name, price) VALUES(:name, :price)")
-
-$statement->bindParam(":placeholder, $_POST['name']");
-$statement->bindParam(":placeholder, $_POST['price']");
-$statement->execute();
-
-var_dump($_POST);
-header("Location: index.php");
+while($Restaurant_Menu = $stmt->fetch()){
+    echo "<div>" . $Restaurant_Menu["name"] . "</div>";
+}
 ?>
