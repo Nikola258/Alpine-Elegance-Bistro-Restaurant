@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="food-menu-desc">
-                    <h4>margherita pizza</h4>
+                    <h4>Margherita Pizza</h4>
                     <p class="food-price">$10.00</p>
                     <p class="food-detail">
                         Made with Italian Sauce, Basil leaves, Fresh mozzarella cheese and San Marzano tomatoes.
