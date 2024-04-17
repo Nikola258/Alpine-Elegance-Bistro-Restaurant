@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +14,7 @@
 </head>
 <body>
     <?php
-        session_start();
-        if(isset($_SESSION['username'])){
-
-        }
-        else{
-            header(header: *Location: connect.php*);
-        }
-
-        $connection = new PDO(dsn: "mysql:dbname=menu;host=mysql_db", username: "root", password: "rootpassword");
+        $connection = new PDO("mysql:dbname=menu;host=mysql_db", "root", "rootpassword");
 
         $sql = "SELECT * FROM Restaurant_Menu";
 
