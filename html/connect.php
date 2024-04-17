@@ -20,6 +20,11 @@
         while($Restaurant_Menu = $stmt->fetch()){
             echo "<div class= 'name'>" . $Restaurant_Menu["name"] . "</div>";
             echo "<div class= 'price'>" . $Restaurant_Menu["price"] . "</div>";
+            <ul>
+                <li><a href="#">Verwijder gerecht</a></li>
+                <li><a href="#">Voeg nieuwe gerecht toe</a></li>
+                <li><a href="#">Prijs veranderen</a></li>
+            </ul>
         }
     ?>
 </body>
