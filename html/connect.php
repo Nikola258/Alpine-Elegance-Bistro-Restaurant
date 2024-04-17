@@ -28,7 +28,7 @@ session_start();
     
     <ul>
         <li><a href="#">Verwijder gerecht</a></li>
-        <li><a href="#">Voeg nieuwe gerecht toe</a></li>
+        <li><a href="Add.php">Voeg nieuwe gerecht toe</a></li>
         <li><a href="#">Prijs veranderen</a></li>
     </ul>
 
