@@ -3,7 +3,7 @@
 if (isset($_POST['login'])) {
     if ($_POST['username'] == "admin" && $_POST['password'] == "123") {
         $_SESSION['username'] = "admin";
-        header(header:"Location: Admin.php");
+        header(header:"Location: connect.php");
     }
 }
 ?>
@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
     <title>Document</title>
 </head>
 <body>
-<form action="login.php" method="post">
+<form action="connect.php" method="post">
         <h1>Login</h1>
         <div>
             <label for="username">Username:</label>
@@ -28,7 +28,6 @@ if (isset($_POST['login'])) {
         </div>
         <section>
             <button type="submit">Login</button>
-            <a href="register.php">Register</a>
         </section>
     </form>
 

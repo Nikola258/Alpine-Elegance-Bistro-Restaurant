@@ -3,7 +3,7 @@
     if(isset($_SESSION['username'])) {
         // Loged in
     } else {
-        header (header:"Location: Login.php");
+        header (header:"Location: connect.php");
     }
 
 ?>
