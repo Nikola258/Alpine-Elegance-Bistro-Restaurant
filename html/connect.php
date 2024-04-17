@@ -11,6 +11,14 @@
 </head>
 <body>
     <?php
+        session_start();
+        if(isset($_SESSION['username'])){
+
+        }
+        else{
+            header(header *location: login.php*);
+        }
+
         $connection = new PDO(dsn: "mysql:dbname=menu;host=mysql_db", username: "root", password: "rootpassword");
 
         $sql = "SELECT * FROM Restaurant_Menu";
@@ -20,12 +28,14 @@
         while($Restaurant_Menu = $stmt->fetch()){
             echo "<div class= 'name'>" . $Restaurant_Menu["name"] . "</div>";
             echo "<div class= 'price'>" . $Restaurant_Menu["price"] . "</div>";
-            <ul>
-                <li><a href="#">Verwijder gerecht</a></li>
-                <li><a href="#">Voeg nieuwe gerecht toe</a></li>
-                <li><a href="#">Prijs veranderen</a></li>
-            </ul>
         }
     ?>
+    
+    <ul>
+        <li><a href="#">Verwijder gerecht</a></li>
+        <li><a href="#">Voeg nieuwe gerecht toe</a></li>
+        <li><a href="#">Prijs veranderen</a></li>
+    </ul>
+
 </body>
 </html>
