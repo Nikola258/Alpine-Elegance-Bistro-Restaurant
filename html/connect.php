@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link our CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Document</title>
 </head>
 <body>
     <?php
-        $connection = new PDO(dsn: "mysql:dbname=Restaurant_Menu;host=mysql_db", username: "root", password: "rootpassword");
+        $connection = new PDO(dsn: "mysql:dbname=menu;host=mysql_db", username: "root", password: "rootpassword");
 
         $sql = "SELECT * FROM Restaurant_Menu";
 
@@ -15,6 +19,7 @@
 
         while($Restaurant_Menu = $stmt->fetch()){
             echo "<div class= 'name'>" . $Restaurant_Menu["name"] . "</div>";
+            echo "<div class= 'price'>" . $Restaurant_Menu["price"] . "</div>";
         }
     ?>
 </body>
