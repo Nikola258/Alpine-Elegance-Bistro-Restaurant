@@ -1,4 +1,6 @@
-<?php require_once "connect.php" ?>
+<?php 
+require_once "connect.php" 
+?>
 
 <form method="post" action="AddLogic.php">
     <label>Naam</label>

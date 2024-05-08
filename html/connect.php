@@ -14,7 +14,7 @@ session_start();
 </head>
 <body>
     <?php
-        $connection = new PDO("mysql:dbname=menu;host=mysql_db", "root", "rootpassword");
+        $connection = new PDO("mysql:dbname=Restaurant_Menu;host=mysql_db", username: "root", password: "rootpassword");
 
         $sql = "SELECT * FROM Restaurant_Menu";
 
