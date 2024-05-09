@@ -29,10 +29,7 @@
                         <a href="http://localhost:8000/Foods.php">Menu</a>
                     </li>
                     <li>
-                        <a href="foods.html">About us</a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:8000/Login.php">Login</a>
+                        <a href="http://localhost:8000/Login Page.php">Login</a>
                     </li>
                 </ul>
             </div>

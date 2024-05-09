@@ -13,18 +13,18 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <?php
-        $connection = new PDO("mysql:dbname=Restaurant_Menu;host=mysql_db", username: "root", password: "rootpassword");
+<?php
+$dsn = 'mysql:dbname=YourDatabaseName;host=localhost';
+$username = 'YourUsername';
+$password = 'YourPassword';
 
-        $sql = "SELECT * FROM Restaurant_Menu";
-
-        $stmt = $connection->query($sql);
-
-        while($Restaurant_Menu = $stmt->fetch()){
-            echo "<div class= 'name'>" . $Restaurant_Menu["name"] . "</div>";
-            echo "<div class= 'price'>" . $Restaurant_Menu["price"] . "</div>";
-        }
-    ?>
+try {
+    $conn = new PDO($dsn, $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Connection failed: '. $e->getMessage();
+}
+?>
     
     <ul>
         <li><a href="#">Verwijder gerecht</a></li>
