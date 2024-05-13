@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Important to make website responsive -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Website</title>
 
-    <!-- Link our CSS file -->
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- Navbar Section Starts Here -->
+    
     <section class="navbar">
         <div class="container">
             <div class="logo">
@@ -37,9 +37,9 @@
             <div class="clearfix"></div>
         </div>
     </section>
-    <!-- Navbar Section Ends Here -->
+    
 
-    <!-- fOOD sEARCH Section Starts Here -->
+    
     <section class="food-search text-center">
         <div class="container">
             
@@ -50,9 +50,8 @@
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
+    
 
-    <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
@@ -170,9 +169,9 @@
             <a href="#">See All Foods</a>
         </p>
     </section>
-    <!-- fOOD Menu Section Ends Here -->
+    
 
-    <!-- social Section Starts Here -->
+
     <section class="social">
         <div class="container text-center">
             <ul>
@@ -188,15 +187,15 @@
             </ul>
         </div>
     </section>
-    <!-- social Section Ends Here -->
+    
 
-    <!-- footer Section Starts Here -->
+
     <section class="footer">
         <div class="container text-center">
             <p>All rights reserved. Designed By <a href="#">Nikola</a></p>
         </div>
     </section>
-    <!-- footer Section Ends Here -->
+    
 
 </body>
 </html>
