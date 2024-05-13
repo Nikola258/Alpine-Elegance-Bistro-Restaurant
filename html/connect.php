@@ -3,35 +3,27 @@ session_start();
 ?>
 
 <?php
-
-
 $host = 'localhost';
 $dbname = 'Menu';
 $username = 'root';
 $password = 'rootpassword';
 
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
 
-    try {
-        $pdo = new PDO("mysqli:host=$host;dbname=$dbname", $username, $password);
-    
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully";
+    $stmt = $pdo->prepare("SELECT * FROM Menu");
+    $stmt->execute();
 
-    
-        $stmt = $pdo->prepare("SELECT * FROM Menu");
-        $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    
-        foreach ($results as $row) {
-            echo "<div class='name'>" . $row['name'] . "</div>";
-        }
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+    foreach ($results as $row) {
+        echo "<div class='name'>" . htmlspecialchars($row['name']) . "</div>";
     }
-
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
 ?>
 
 

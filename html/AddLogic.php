@@ -1,18 +1,13 @@
-<?php ob_start(); ?>
-<?php require_once "connect.php" ?>
-
-
 <?php
-$sql = "UPDATE Restaurant_Menu
-        SET name = :name, price = :price
-        WHERE id = :id";
+$host = "localhost";
+$db = "Menu1";
+$user = "root";
+$pass = "rootpassword";
 
-$stmt = $connection->prepare($sql);
-$stmt->bindParam(":id", $_POST['id']);
-$stmt->bindParam(":name", $_POST['name']);
-$stmt->bindParam(":price", $_POST['price']);
-
-$stmt->execute();
-header("Location: connect.php");
-
+try {
+    $conn = new PDO("pgsql:host=$host;dbname=$db", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
 ?>
