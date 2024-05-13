@@ -1,12 +1,22 @@
 <?php
-$host = "localhost";
-$db = "Menu1";
-$user = "root";
-$pass = "rootpassword";
+$host = 'mysql_db';
+$dbname = 'Menu';
+$username = 'root';
+$password = 'rootpassword';
 
 try {
-    $conn = new PDO("pgsql:host=$host;dbname=$db", $user, $pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+
+    $stmt = $pdo->prepare("SELECT * FROM Menu1");
+    $stmt->execute();
+
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($results as $row) {
+        echo "<div class='name'>" . htmlspecialchars($row['name']) . "</div>";
+    }
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }

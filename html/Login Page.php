@@ -1,31 +1,30 @@
 <?php
-phpinfo();
-?>
-
-<?php
-include "connect.php";
+require_once 'connect.php';
 
 if (isset($_SESSION['user_name'])) {
-    header("Location: index.php");
+    header("Location: Admin-page.php");
     exit();
 }
 
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
-    function validate($data){
+    function validate($data, $min_length = 1) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
+
+        if (strlen($data) < $min_length) {
+            return false;
+        }
+
         return $data;
     }
 
-    $uname = validate($_POST['uname']);
-    $pass = validate($_POST['password']);
+    $uname = validate($_POST['uname'], 3);
+    $pass = validate($_POST['password'], 6);
 
-    if (empty($uname)) {
-        $error = "User Name is required";
-    } elseif (empty($pass)) {
-        $error = "Password is required";
+    if (!$uname || !$pass) {
+        $error = "User name and password must be at least 3 and 6 characters long, respectively.";
     } else {
         $sql = "SELECT * FROM users WHERE user_name = :uname";
         $stmt = $conn->prepare($sql);
@@ -37,13 +36,14 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             $_SESSION['user_name'] = $result['user_name'];
             $_SESSION['name'] = $result['name'];
             $_SESSION['id'] = $result['id'];
-            header("Location: index.php");
+            header("Location: Admin-page.php");
             exit();
         } else {
             $error = "Incorrect User name or password";
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 </head>
 <body>
 
-<form action="Login Page.php" method="post">
+<form action="Admin-page.php" method="post">
     <h2>LOGIN</h2>
 
     <?php if (isset($error)): ?>
